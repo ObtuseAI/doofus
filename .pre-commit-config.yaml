@@ -1,0 +1,17 @@
+# Pre-commit hooks for Doofus.
+#
+# Hygiene hooks only. `ruff` is intentionally NOT wired in: the current tree has
+# 457 ruff findings (201 F401 unused-import, 158 E402, 89 F841 unused-variable,
+# and a few others), spread across every rule, so no rule subset passes cleanly.
+# Auto-fixing them (e.g. removing 201 imports) would be an invasive change to a
+# self-modifying codebase and is out of scope for this tooling-parity change.
+# Adopt ruff in a dedicated cleanup PR once the findings are triaged.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=2048]

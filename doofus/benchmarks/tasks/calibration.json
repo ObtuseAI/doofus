@@ -1,0 +1,29 @@
+{
+  "family": "calibration",
+  "description": "A held-out prediction ledger scored by the real doofus.metacognition.calibration machinery. Public records carry the baseline predictor's probabilities; the ground-truth outcomes are sealed. Score = 1 - brier_score.",
+  "tasks": [
+    {
+      "task_id": "calib_ledger_v1",
+      "target_id": "holdout_calibration",
+      "weight": 1.0,
+      "records": [
+        {"record_id": "r01", "predicted_probability": 0.90, "predicted_fitness": 0.90, "interval_low": 0.75, "interval_high": 1.00, "recommended_action": "promote"},
+        {"record_id": "r02", "predicted_probability": 0.85, "predicted_fitness": 0.85, "interval_low": 0.70, "interval_high": 1.00, "recommended_action": "promote"},
+        {"record_id": "r03", "predicted_probability": 0.80, "predicted_fitness": 0.80, "interval_low": 0.65, "interval_high": 0.95, "recommended_action": "promote"},
+        {"record_id": "r04", "predicted_probability": 0.75, "predicted_fitness": 0.75, "interval_low": 0.60, "interval_high": 0.90, "recommended_action": "promote"},
+        {"record_id": "r05", "predicted_probability": 0.70, "predicted_fitness": 0.70, "interval_low": 0.55, "interval_high": 0.85, "recommended_action": "promote"},
+        {"record_id": "r06", "predicted_probability": 0.65, "predicted_fitness": 0.65, "interval_low": 0.50, "interval_high": 0.80, "recommended_action": "promote"},
+        {"record_id": "r07", "predicted_probability": 0.60, "predicted_fitness": 0.60, "interval_low": 0.45, "interval_high": 0.75, "recommended_action": "promote"},
+        {"record_id": "r08", "predicted_probability": 0.55, "predicted_fitness": 0.55, "interval_low": 0.40, "interval_high": 0.70, "recommended_action": "promote"},
+        {"record_id": "r09", "predicted_probability": 0.50, "predicted_fitness": 0.50, "interval_low": 0.35, "interval_high": 0.65, "recommended_action": "research"},
+        {"record_id": "r10", "predicted_probability": 0.45, "predicted_fitness": 0.45, "interval_low": 0.30, "interval_high": 0.60, "recommended_action": "research"},
+        {"record_id": "r11", "predicted_probability": 0.40, "predicted_fitness": 0.40, "interval_low": 0.25, "interval_high": 0.55, "recommended_action": "abstain"},
+        {"record_id": "r12", "predicted_probability": 0.35, "predicted_fitness": 0.35, "interval_low": 0.20, "interval_high": 0.50, "recommended_action": "abstain"},
+        {"record_id": "r13", "predicted_probability": 0.30, "predicted_fitness": 0.30, "interval_low": 0.15, "interval_high": 0.45, "recommended_action": "abstain"},
+        {"record_id": "r14", "predicted_probability": 0.25, "predicted_fitness": 0.25, "interval_low": 0.10, "interval_high": 0.40, "recommended_action": "abstain"},
+        {"record_id": "r15", "predicted_probability": 0.20, "predicted_fitness": 0.20, "interval_low": 0.05, "interval_high": 0.35, "recommended_action": "terminate"},
+        {"record_id": "r16", "predicted_probability": 0.15, "predicted_fitness": 0.15, "interval_low": 0.00, "interval_high": 0.30, "recommended_action": "terminate"}
+      ]
+    }
+  ]
+}

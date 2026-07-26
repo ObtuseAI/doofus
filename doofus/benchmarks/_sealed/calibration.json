@@ -1,0 +1,66 @@
+{
+  "r01": {
+    "actual_outcome": true,
+    "actual_fitness": 0.95
+  },
+  "r02": {
+    "actual_outcome": true,
+    "actual_fitness": 0.9
+  },
+  "r03": {
+    "actual_outcome": false,
+    "actual_fitness": 0.55
+  },
+  "r04": {
+    "actual_outcome": true,
+    "actual_fitness": 0.8
+  },
+  "r05": {
+    "actual_outcome": true,
+    "actual_fitness": 0.75
+  },
+  "r06": {
+    "actual_outcome": false,
+    "actual_fitness": 0.4
+  },
+  "r07": {
+    "actual_outcome": true,
+    "actual_fitness": 0.65
+  },
+  "r08": {
+    "actual_outcome": false,
+    "actual_fitness": 0.3
+  },
+  "r09": {
+    "actual_outcome": true,
+    "actual_fitness": 0.55
+  },
+  "r10": {
+    "actual_outcome": false,
+    "actual_fitness": 0.2
+  },
+  "r11": {
+    "actual_outcome": false,
+    "actual_fitness": 0.15
+  },
+  "r12": {
+    "actual_outcome": true,
+    "actual_fitness": 0.4
+  },
+  "r13": {
+    "actual_outcome": false,
+    "actual_fitness": 0.05
+  },
+  "r14": {
+    "actual_outcome": false,
+    "actual_fitness": 0.0
+  },
+  "r15": {
+    "actual_outcome": false,
+    "actual_fitness": 0.0
+  },
+  "r16": {
+    "actual_outcome": true,
+    "actual_fitness": 0.2
+  }
+}

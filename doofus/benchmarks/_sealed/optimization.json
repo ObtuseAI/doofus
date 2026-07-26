@@ -1,0 +1,23 @@
+{
+  "opt_sphere_2d": {
+    "optimum": [
+      1.3,
+      -2.7
+    ]
+  },
+  "opt_sphere_5d": {
+    "optimum": [
+      0.5,
+      -1.5,
+      2.5,
+      -0.5,
+      1.0
+    ]
+  },
+  "opt_rastrigin_2d": {
+    "optimum": [
+      1.0,
+      -1.0
+    ]
+  }
+}

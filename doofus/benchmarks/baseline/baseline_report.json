@@ -1,0 +1,94 @@
+{
+  "suite_version": "1.0.0",
+  "generated_at": "2026-07-16T06:53:40+00:00",
+  "engine_ref": "master@2535a4a",
+  "isolation_verified": true,
+  "task_count": 7,
+  "overall_score": 0.300667,
+  "family_scores": {
+    "optimization": 0.361139,
+    "code_repair": 0.083333,
+    "calibration": 0.77125
+  },
+  "tasks": [
+    {
+      "task_id": "opt_sphere_2d",
+      "family": "optimization",
+      "score": 0.65917,
+      "weight": 1.0,
+      "detail": {
+        "best_f": 0.416774,
+        "kind": "sphere",
+        "dim": 2
+      }
+    },
+    {
+      "task_id": "opt_sphere_5d",
+      "family": "optimization",
+      "score": 0.066098,
+      "weight": 1.0,
+      "detail": {
+        "best_f": 2.716624,
+        "kind": "sphere",
+        "dim": 5
+      }
+    },
+    {
+      "task_id": "opt_rastrigin_2d",
+      "family": "optimization",
+      "score": 0.358149,
+      "weight": 1.0,
+      "detail": {
+        "best_f": 1.026807,
+        "kind": "rastrigin",
+        "dim": 2
+      }
+    },
+    {
+      "task_id": "repair_median",
+      "family": "code_repair",
+      "score": 0.25,
+      "weight": 1.0,
+      "detail": {
+        "hidden_passed": 1,
+        "hidden_total": 4,
+        "hidden_errors": 0
+      }
+    },
+    {
+      "task_id": "repair_word_count",
+      "family": "code_repair",
+      "score": 0.0,
+      "weight": 1.0,
+      "detail": {
+        "hidden_passed": 0,
+        "hidden_total": 4,
+        "hidden_errors": 0
+      }
+    },
+    {
+      "task_id": "repair_clamp",
+      "family": "code_repair",
+      "score": 0.0,
+      "weight": 1.0,
+      "detail": {
+        "hidden_passed": 0,
+        "hidden_total": 3,
+        "hidden_errors": 0
+      }
+    },
+    {
+      "task_id": "calib_ledger_v1",
+      "family": "calibration",
+      "score": 0.77125,
+      "weight": 1.0,
+      "detail": {
+        "brier_score": 0.22875,
+        "expected_calibration_error": 0.25625,
+        "prediction_interval_coverage": 0.5,
+        "false_confidence_rate": 0.2,
+        "sample_count": 16
+      }
+    }
+  ]
+}

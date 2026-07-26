@@ -1,0 +1,16 @@
+{
+  "id": "obtuse-project",
+  "root": "C:\\absolute\\path\\to\\project",
+  "enabled": false,
+  "auto_apply": false,
+  "fitness_command": ["python", "scripts/fitness_contract.py"],
+  "fitness_timeout_seconds": 300,
+  "targets": [
+    {
+      "id": "pipeline-budget",
+      "module": "src/config.py",
+      "param_key": "PIPELINE_BUDGET",
+      "description": "Reviewed non-protected numeric tuning knob"
+    }
+  ]
+}

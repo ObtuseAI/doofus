@@ -1,0 +1,11 @@
+{
+  "name": "doofus-cursor-bridge",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@cursor/sdk": "latest"
+  },
+  "overrides": {
+    "undici": "6.27.0"
+  }
+}

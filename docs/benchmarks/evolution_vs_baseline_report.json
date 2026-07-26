@@ -1,0 +1,600 @@
+{
+  "schema_version": "1.0.0",
+  "experiment": "evolution-vs-baseline",
+  "generated_at": "2026-07-16T22:03:30+00:00",
+  "engine_ref": "master@7ec0cf5+roadmap-completion",
+  "generations_per_target": 24,
+  "registered_target": "heldout-toy-optimizer",
+  "training_fitness": {
+    "before": 0.9681,
+    "after": 0.991,
+    "delta": 0.0229
+  },
+  "candidate": {
+    "sha256": "af5f6c88ff56bbdd1b8eeaf6c27c426ea8e6458787e69eeda47a834751ea4607",
+    "source": "\"\"\"Generic random-restart local-search candidate evolved on public training tasks.\"\"\"\nfrom __future__ import annotations\n\nimport random\n\nGLOBAL_FRACTION = 0.608655\nLOCAL_SCALE = 0.248109\n\n\ndef solve(objective, dim, bounds, budget, rng):\n    lo, hi = bounds\n    global_budget = max(1, min(budget, int(budget * GLOBAL_FRACTION)))\n    best = [rng.uniform(lo, hi) for _ in range(dim)]\n    best_value = objective(best)\n    for _ in range(global_budget - 1):\n        point = [rng.uniform(lo, hi) for _ in range(dim)]\n        value = objective(point)\n        if value < best_value:\n            best, best_value = point, value\n\n    local_budget = max(0, budget - global_budget)\n    span = hi - lo\n    for index in range(local_budget):\n        progress = index / max(1, local_budget - 1)\n        sigma = span * LOCAL_SCALE * max(0.01, 1.0 - progress)\n        point = [min(hi, max(lo, rng.gauss(value, sigma))) for value in best]\n        value = objective(point)\n        if value < best_value:\n            best, best_value = point, value\n    return best\n",
+    "frozen_before_heldout": true
+  },
+  "evolution": {
+    "classification": "EVOLVE_PROJECT_COMPLETE",
+    "project": "heldout-toy-optimizer",
+    "generations": 24,
+    "targets": [
+      "heldout-toy-optimizer:global-fraction",
+      "heldout-toy-optimizer:local-scale"
+    ],
+    "runs": 48,
+    "accepted": 4,
+    "best_fitness": 0.991,
+    "optimizer_state": {
+      "heldout-toy-optimizer:global-fraction": {
+        "step": 0.005,
+        "direction": 1,
+        "best_fitness": 0.991,
+        "best_value": 0.608655
+      },
+      "heldout-toy-optimizer:local-scale": {
+        "step": 0.005,
+        "direction": 1,
+        "best_fitness": 0.991,
+        "best_value": 0.248109
+      }
+    },
+    "results": [
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.050 baseline=0.9681 candidate=0.7852 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.050 baseline=0.9681 candidate=0.7541 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.950 baseline=0.9681 candidate=0.7701 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.950 baseline=0.9681 candidate=0.7685 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.025 baseline=0.9681 candidate=0.7803 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.025 baseline=0.9681 candidate=0.7859 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.975 baseline=0.9681 candidate=0.7757 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.975 baseline=0.9681 candidate=0.9500 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.012 baseline=0.9681 candidate=0.7782 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.012 baseline=0.9681 candidate=0.7779 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9681,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.988 baseline=0.9681 candidate=0.9611 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9729,
+        "accepted": true,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.988 baseline=0.9681 candidate=0.9729 \u2014 applied"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.9778,
+        "accepted": true,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.006 baseline=0.9729 candidate=0.9778 \u2014 applied"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.9778,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.984 baseline=0.9778 candidate=0.9548 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.989,
+        "accepted": true,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.008 baseline=0.9778 candidate=0.9890 \u2014 applied"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.016 baseline=0.9890 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.011 baseline=0.9890 candidate=0.7818 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.992 baseline=0.9890 candidate=0.7367 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.989 baseline=0.9890 candidate=0.9778 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.008 baseline=0.9890 candidate=0.7765 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9890 candidate=0.7780 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9890 candidate=0.9830 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.989,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9890 candidate=0.7432 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": true,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9890 candidate=0.9910 \u2014 applied"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.006 baseline=0.9910 candidate=0.7782 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.994 baseline=0.9910 candidate=0.9874 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9910 candidate=0.7777 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9910 candidate=0.9890 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9910 candidate=0.7777 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9910 candidate=0.9890 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9910 candidate=0.7777 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9910 candidate=0.9890 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9910 candidate=0.7777 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9910 candidate=0.9890 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x1.005 baseline=0.9910 candidate=0.7813 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x1.005 baseline=0.9910 candidate=0.7777 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:global-fraction",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:global-fraction GLOBAL_FRACTION x0.995 baseline=0.9910 candidate=0.9726 \u2014 rolled back"
+      },
+      {
+        "classification": "CODEEVOLVE_EXTERNAL_GENERATION_COMPLETE",
+        "target": "heldout-toy-optimizer:local-scale",
+        "fitness": 0.991,
+        "accepted": false,
+        "summary": "External heldout-toy-optimizer:local-scale LOCAL_SCALE x0.995 baseline=0.9910 candidate=0.9890 \u2014 rolled back"
+      }
+    ]
+  },
+  "heldout": {
+    "baseline": {
+      "suite_version": "1.0.0",
+      "generated_at": "2026-07-16T22:03:30+00:00",
+      "engine_ref": "committed-baseline",
+      "isolation_verified": true,
+      "task_count": 7,
+      "overall_score": 0.300667,
+      "family_scores": {
+        "optimization": 0.361139,
+        "code_repair": 0.083333,
+        "calibration": 0.77125
+      },
+      "tasks": [
+        {
+          "task_id": "opt_sphere_2d",
+          "family": "optimization",
+          "score": 0.65917,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 0.416774,
+            "kind": "sphere",
+            "dim": 2
+          }
+        },
+        {
+          "task_id": "opt_sphere_5d",
+          "family": "optimization",
+          "score": 0.066098,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 2.716624,
+            "kind": "sphere",
+            "dim": 5
+          }
+        },
+        {
+          "task_id": "opt_rastrigin_2d",
+          "family": "optimization",
+          "score": 0.358149,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 1.026807,
+            "kind": "rastrigin",
+            "dim": 2
+          }
+        },
+        {
+          "task_id": "repair_median",
+          "family": "code_repair",
+          "score": 0.25,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 1,
+            "hidden_total": 4,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "repair_word_count",
+          "family": "code_repair",
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 0,
+            "hidden_total": 4,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "repair_clamp",
+          "family": "code_repair",
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 0,
+            "hidden_total": 3,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "calib_ledger_v1",
+          "family": "calibration",
+          "score": 0.77125,
+          "weight": 1.0,
+          "detail": {
+            "brier_score": 0.22875,
+            "expected_calibration_error": 0.25625,
+            "prediction_interval_coverage": 0.5,
+            "false_confidence_rate": 0.2,
+            "sample_count": 16
+          }
+        }
+      ]
+    },
+    "candidate": {
+      "suite_version": "1.0.0",
+      "generated_at": "2026-07-16T22:03:30+00:00",
+      "engine_ref": "master@7ec0cf5+roadmap-completion",
+      "isolation_verified": true,
+      "task_count": 7,
+      "overall_score": 0.479286,
+      "family_scores": {
+        "optimization": 0.777916,
+        "code_repair": 0.083333,
+        "calibration": 0.77125
+      },
+      "tasks": [
+        {
+          "task_id": "opt_sphere_2d",
+          "family": "optimization",
+          "score": 0.99954,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 0.00046,
+            "kind": "sphere",
+            "dim": 2
+          }
+        },
+        {
+          "task_id": "opt_sphere_5d",
+          "family": "optimization",
+          "score": 0.986036,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 0.014063,
+            "kind": "sphere",
+            "dim": 5
+          }
+        },
+        {
+          "task_id": "opt_rastrigin_2d",
+          "family": "optimization",
+          "score": 0.348173,
+          "weight": 1.0,
+          "detail": {
+            "best_f": 1.055054,
+            "kind": "rastrigin",
+            "dim": 2
+          }
+        },
+        {
+          "task_id": "repair_median",
+          "family": "code_repair",
+          "score": 0.25,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 1,
+            "hidden_total": 4,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "repair_word_count",
+          "family": "code_repair",
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 0,
+            "hidden_total": 4,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "repair_clamp",
+          "family": "code_repair",
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": {
+            "hidden_passed": 0,
+            "hidden_total": 3,
+            "hidden_errors": 0
+          }
+        },
+        {
+          "task_id": "calib_ledger_v1",
+          "family": "calibration",
+          "score": 0.77125,
+          "weight": 1.0,
+          "detail": {
+            "brier_score": 0.22875,
+            "expected_calibration_error": 0.25625,
+            "prediction_interval_coverage": 0.5,
+            "false_confidence_rate": 0.2,
+            "sample_count": 16
+          }
+        }
+      ]
+    },
+    "overall_delta": 0.178619,
+    "improved": true,
+    "isolation_verified": true
+  },
+  "duration_seconds": 20.623,
+  "evidence_contract": {
+    "schema_version": "1.0.0",
+    "evidence_id": "doofus-evolution-af5f6c88ff56bbdd",
+    "producer": "ObtuseAI/doofus",
+    "domain": "code_parameter_evolution",
+    "generated_at": "2026-07-16T22:03:30+00:00",
+    "subject_ref": "af5f6c88ff56bbdd1b8eeaf6c27c426ea8e6458787e69eeda47a834751ea4607",
+    "evaluation_ref": "heldout-suite:1.0.0",
+    "isolation_verified": true,
+    "mutation_authority": "producer_only",
+    "metrics": [
+      {
+        "name": "heldout_overall_score",
+        "baseline": 0.300667,
+        "candidate": 0.479286,
+        "delta": 0.178619,
+        "direction": "higher_is_better"
+      }
+    ],
+    "artifacts": [],
+    "notes": {
+      "registered_target": "heldout-toy-optimizer"
+    }
+  }
+}

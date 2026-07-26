@@ -1,0 +1,98 @@
+{
+  "repair_median": [
+    {
+      "args": [
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected_hash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "args": [
+        [
+          5,
+          2,
+          9,
+          1
+        ]
+      ],
+      "expected_hash": "8a199b120cf400d69c300e1dd6eacdc8b0002353e3044bbab21e0125b32c9fd6"
+    },
+    {
+      "args": [
+        [
+          10,
+          -1,
+          4
+        ]
+      ],
+      "expected_hash": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    },
+    {
+      "args": [
+        [
+          8,
+          8,
+          1,
+          1
+        ]
+      ],
+      "expected_hash": "32209ccbf8a8e509b9027698cc173343a2695e8ecdbe899bf5335a3100c956fc"
+    }
+  ],
+  "repair_word_count": [
+    {
+      "args": [
+        "a\tb"
+      ],
+      "expected_hash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "args": [
+        "hello   world"
+      ],
+      "expected_hash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "args": [
+        "  leading"
+      ],
+      "expected_hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "args": [
+        "a\nb"
+      ],
+      "expected_hash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    }
+  ],
+  "repair_clamp": [
+    {
+      "args": [
+        15,
+        0,
+        10
+      ],
+      "expected_hash": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+    },
+    {
+      "args": [
+        100,
+        -5,
+        5
+      ],
+      "expected_hash": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d"
+    },
+    {
+      "args": [
+        7,
+        1,
+        6
+      ],
+      "expected_hash": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    }
+  ]
+}

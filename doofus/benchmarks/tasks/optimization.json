@@ -1,0 +1,9 @@
+{
+  "family": "optimization",
+  "description": "Seeded black-box minimization. The solver sees only f-values; the global optimum is sealed. Score = exp(-best_f), so 0.0 min value scores 1.0.",
+  "tasks": [
+    {"task_id": "opt_sphere_2d", "kind": "sphere", "dim": 2, "bounds": [-5.0, 5.0], "budget": 250, "seed": 1234, "weight": 1.0},
+    {"task_id": "opt_sphere_5d", "kind": "sphere", "dim": 5, "bounds": [-5.0, 5.0], "budget": 600, "seed": 2718, "weight": 1.0},
+    {"task_id": "opt_rastrigin_2d", "kind": "rastrigin", "dim": 2, "bounds": [-5.12, 5.12], "budget": 500, "seed": 3141, "weight": 1.0}
+  ]
+}

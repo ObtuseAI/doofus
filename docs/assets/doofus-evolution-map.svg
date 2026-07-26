@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Doofus evidence-gated evolution map</title>
+  <desc id="desc">A dark product diagram showing nested evolution loops, live evidence signals, and promotion gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0a1930"/>
+      <stop offset="1" stop-color="#07101d"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .sans{font-family:Inter,Segoe UI,Arial,sans-serif}
+      .mono{font-family:JetBrains Mono,Cascadia Code,Consolas,monospace}
+      .muted{fill:#8da2bd}
+      .line{stroke:#23415f;stroke-width:2}
+      .card{fill:#0d2038;stroke:#1e4160;stroke-width:2}
+      .label{fill:#dbeafe;font-size:20px;font-weight:650}
+      .small{fill:#8da2bd;font-size:15px}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1255" cy="110" r="240" fill="#12335c" opacity=".22"/>
+  <circle cx="180" cy="820" r="250" fill="#0e7490" opacity=".12"/>
+
+  <g class="sans">
+    <text x="90" y="90" fill="#f8fbff" font-size="48" font-weight="760">DOOFUS</text>
+    <text x="90" y="132" fill="#70d9ff" font-size="20" letter-spacing="3">EVIDENCE-GATED EVOLUTION</text>
+    <text x="90" y="174" class="muted" font-size="19">Explore broadly. Measure honestly. Promote only against held-out proof.</text>
+
+    <g transform="translate(90 230)">
+      <rect width="905" height="570" rx="26" fill="#09182b" stroke="#1c3a57" stroke-width="2"/>
+      <text x="34" y="50" fill="#dbeafe" font-size="18" font-weight="700">NESTED RESEARCH LOOPS</text>
+      <text x="660" y="50" class="small mono">SHADOW → REVIEW → PROMOTE</text>
+
+      <g transform="translate(62 92)">
+        <circle cx="370" cy="228" r="210" fill="none" stroke="#163552" stroke-width="44"/>
+        <circle cx="370" cy="228" r="164" fill="none" stroke="#1a4665" stroke-width="38"/>
+        <circle cx="370" cy="228" r="122" fill="none" stroke="#12637a" stroke-width="34"/>
+        <circle cx="370" cy="228" r="82" fill="none" stroke="#1689a8" stroke-width="30"/>
+        <circle cx="370" cy="228" r="43" fill="url(#cyan)" filter="url(#glow)"/>
+
+        <text x="370" y="218" fill="#03101d" text-anchor="middle" font-size="15" font-weight="800">CANDIDATE</text>
+        <text x="370" y="240" fill="#03101d" text-anchor="middle" font-size="13" font-weight="700">MUTATION</text>
+
+        <g class="mono" font-size="14" fill="#c6e8ff">
+          <text x="370" y="-1" text-anchor="middle">THRESHOLD RESEARCH</text>
+          <text x="370" y="69" text-anchor="middle">METACOGNITION</text>
+          <text x="370" y="121" text-anchor="middle">EVOLVER STRATEGY</text>
+          <text x="370" y="164" text-anchor="middle">MAP-ELITES</text>
+        </g>
+
+        <path d="M588 228 C690 228 688 390 790 390" fill="none" stroke="#22d3ee" stroke-width="3"/>
+        <circle cx="588" cy="228" r="6" fill="#22d3ee"/>
+        <rect x="666" y="340" width="190" height="104" rx="16" class="card"/>
+        <text x="761" y="377" text-anchor="middle" class="label">Held-out gate</text>
+        <text x="761" y="406" text-anchor="middle" class="small">freeze · hash · replay</text>
+        <text x="761" y="429" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">NON-REGRESSION</text>
+      </g>
+    </g>
+
+    <g transform="translate(1030 230)">
+      <rect width="480" height="570" rx="26" fill="#0a192b" stroke="#1c3a57" stroke-width="2"/>
+      <text x="30" y="50" fill="#dbeafe" font-size="18" font-weight="700">LIVE EVIDENCE</text>
+      <text x="365" y="50" fill="#34d399" font-size="14" font-weight="750">DRY RUN</text>
+
+      <g transform="translate(30 82)">
+        <rect width="200" height="112" rx="18" class="card"/>
+        <text x="20" y="33" class="small">CANDIDATES</text>
+        <text x="20" y="78" fill="#f8fbff" font-size="39" font-weight="760">64</text>
+        <text x="122" y="78" fill="#70d9ff" font-size="15">4 generations</text>
+
+        <rect x="220" width="200" height="112" rx="18" class="card"/>
+        <text x="240" y="33" class="small">PROMOTIONS</text>
+        <text x="240" y="78" fill="#34d399" font-size="39" font-weight="760">5</text>
+        <text x="294" y="78" fill="#8da2bd" font-size="15">gated</text>
+
+        <rect y="132" width="420" height="168" rx="18" class="card"/>
+        <text x="20" y="165" class="small">SCORE ENVELOPE</text>
+        <path d="M22 260 C75 244 94 210 135 222 S206 266 248 228 S317 188 399 170" fill="none" stroke="#22d3ee" stroke-width="4"/>
+        <path d="M22 272 C75 264 94 244 135 252 S206 282 248 255 S317 232 399 220" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8 7"/>
+        <line x1="22" y1="280" x2="399" y2="280" class="line"/>
+
+        <rect y="320" width="420" height="164" rx="18" class="card"/>
+        <text x="20" y="353" class="small">PROMOTION CONTRACT</text>
+        <g class="mono" font-size="15">
+          <text x="20" y="389" fill="#34d399">✓ safety floor preserved</text>
+          <text x="20" y="418" fill="#34d399">✓ held-out score non-regressing</text>
+          <text x="20" y="447" fill="#34d399">✓ rollback snapshot retained</text>
+          <text x="20" y="476" fill="#70d9ff">→ evidence packet ready</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(90 833)">
+      <circle cx="8" cy="0" r="6" fill="#34d399"/>
+      <text x="26" y="6" class="muted mono" font-size="14">LOCAL-FIRST</text>
+      <circle cx="180" cy="0" r="6" fill="#22d3ee"/>
+      <text x="198" y="6" class="muted mono" font-size="14">BOUNDED MUTATION</text>
+      <circle cx="420" cy="0" r="6" fill="#3b82f6"/>
+      <text x="438" y="6" class="muted mono" font-size="14">SEALED EVALUATION</text>
+      <text x="1510" y="6" text-anchor="end" fill="#5e7692" class="mono" font-size="13">ObtuseAI / Doofus</text>
+    </g>
+  </g>
+</svg>

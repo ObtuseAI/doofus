@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doofus"
+version = "1.1.0"
+description = "Evidence-driven metacognitive evolution with held-out benchmarks, calibrated control, and safety-gated project optimization"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+  "nicegui>=2.0",
+  "pandas>=2.0",
+  "plotly>=5.0",
+  "requests>=2.28",
+  "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+sota = [
+  "ribs>=0.5.0",
+  "dspy-ai>=2.5",
+  "numpy>=1.26",
+]
+sota-arenas = ["doofus[sota]"]
+sota-codeevolve = ["doofus[sota]"]
+dev = ["pytest>=8.0", "ruff>=0.12"]
+
+[tool.setuptools.packages.find]
+include = ["doofus*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "live_runtime: intentionally touches canonical live runtime paths; skipped unless DOOFUS_ALLOW_LIVE_RUNTIME_TESTS=1",
+]
+
+[tool.ruff]
+required-version = "==0.16.0"
+
+[tool.ruff.lint.per-file-ignores]
+# Executable entrypoints deliberately bootstrap the repository root before
+# importing the package; tests retain the same compatibility pattern.
+"scripts/*.py" = ["E402"]
+"tests/*.py" = ["E402"]
+
+[tool.ruff.lint]
+# The legacy runtime exposes module globals for dynamic import, dashboard
+# discovery, and test-path rebinding. Removing apparently unused bindings has
+# broken those contracts, so these rules remain excluded until each surface is
+# migrated to an explicit registry. All other Ruff rules are blocking in CI.
+select = ["E4", "E7", "E9", "F"]
+ignore = ["F401", "F811", "F841"]

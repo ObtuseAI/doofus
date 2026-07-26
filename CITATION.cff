@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you reference Doofus, cite this repository."
+title: "Doofus: Evidence-Driven Metacognitive Evolution"
+type: software
+version: 1.1.0
+date-released: 2026-07-26
+authors:
+  - family-names: Harris
+    given-names: Chris
+repository-code: "https://github.com/ObtuseAI/doofus"
+license: MIT
+keywords:
+  - evolutionary algorithms
+  - metacognition
+  - quality diversity
+  - held-out benchmarks
+  - autonomous agents
