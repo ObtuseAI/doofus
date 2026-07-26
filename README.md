@@ -5,10 +5,10 @@
 **An evidence-driven laboratory for systems that learn how to improve.**
 
 Generate diverse candidates. Measure the visible objective.<br>
-Freeze the contender. Promote only when held-out evidence survives.
+Freeze the contender. Promote only when versioned evaluation evidence survives.
 
 [![Tests](https://github.com/ObtuseAI/doofus/actions/workflows/tests.yml/badge.svg)](https://github.com/ObtuseAI/doofus/actions/workflows/tests.yml)
-[![Held-out benchmarks](https://github.com/ObtuseAI/doofus/actions/workflows/heldout-benchmarks.yml/badge.svg)](https://github.com/ObtuseAI/doofus/actions/workflows/heldout-benchmarks.yml)
+[![Reference-suite workflow](https://github.com/ObtuseAI/doofus/actions/workflows/heldout-benchmarks.yml/badge.svg)](https://github.com/ObtuseAI/doofus/actions/workflows/heldout-benchmarks.yml)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Quality diversity](https://img.shields.io/badge/search-MAP--Elites-F97316)](doofus/evolution/map_elites_archive.py)
 [![MIT License](https://img.shields.io/badge/license-MIT-2563EB)](LICENSE)
@@ -19,13 +19,31 @@ Freeze the contender. Promote only when held-out evidence survives.
 
 Doofus is a local-first research platform for evolving optimizers, prompts, policies, mutation strategies, and explicitly registered project parameters.
 
-It combines quality-diversity search, nested meta-evolution, calibrated metacognition, sealed held-out benchmarks, proof construction, runtime health, lineage, rollback, and an information-dense evidence dashboard.
+It combines quality-diversity search, nested meta-evolution, calibrated metacognition, versioned reference-suite evaluation, proof construction, runtime health, lineage, rollback, and an information-dense evidence dashboard.
 
 The name is playful. The research question is not:
 
 > How do you let a system change itself aggressively without mistaking activity, a higher training score, or a lucky run for improvement?
 
-Doofus answers with diversity before convergence, predictions before outcomes, held-out evidence before promotion, and recovery as part of the experiment rather than an afterthought.
+Doofus answers with diversity before convergence, predictions before outcomes, reference-suite evidence before promotion, and recovery as part of the experiment rather than an afterthought.
+
+## Product truth
+
+| Contract | Current public state |
+| --- | --- |
+| **Portfolio role** | **Evolution and Metacognition Lab** — quality-diversity search, calibrated promotion, replay, and bounded optimization. |
+| **Maturity** | **Research preview** |
+| **Engineering evidence baseline** | [`c356ff97`](https://github.com/ObtuseAI/doofus/commit/c356ff973daa9ff3985cbb03fd84df064c79f0ed) · configured [tests](https://github.com/ObtuseAI/doofus/actions/workflows/tests.yml) and opt-in reference-suite workflow |
+| **Proved now** | The public source implements MAP-Elites archives, challenger tournaments, lineage, candidate freezing, replay, calibrated metacognition, promotion audits, rollback, and bounded external-project experiments. |
+| **Authority ceiling** | Research candidates remain shadow or bounded until explicit gates pass. Operators own external-project effects, provider use, retained source mutation, and changes to promotion policy. |
+| **Clean demonstration** | Follow the [quick start](#quick-start) to run provider-free tests, the public reference suite, and the local evidence dashboard. |
+| **Known limit** | The committed reference tasks are public and therefore are not a secret or independently administered holdout. External evaluation and clean public benchmark provenance remain required for stronger generalization claims. |
+
+**Designed for:** research teams that want optimization systems to expose diversity, uncertainty, calibration, lineage, and failed promotion—not merely a winning score.
+
+[Explore the ObtuseAI portfolio](https://github.com/ObtuseAI) ·
+[Inspect the learning loops](#the-five-nested-learning-loops) ·
+[Start a technical conversation](https://github.com/ObtuseAI/doofus/issues)
 
 ## Doofus in one minute
 
@@ -34,7 +52,7 @@ Doofus answers with diversity before convergence, predictions before outcomes, h
 | **What is it?** | A metacognitive evolution runtime and research workbench for measurable, reversible improvement. |
 | **What can it evolve?** | Candidate configurations, optimization strategies, prompts, bounded genes, and declared numeric parameters in external projects. |
 | **How does it search?** | Mutation, novelty pressure, challenger tournaments, MAP-Elites archives, shadow elites, and higher-order strategy loops. |
-| **How does it avoid fooling itself?** | Candidate freezing, held-out tasks, calibration scoring, lineage, proof density, repeatability, uncertainty, and rollback. |
+| **How does it avoid fooling itself?** | Candidate freezing, versioned reference tasks, calibration scoring, lineage, proof density, repeatability, uncertainty, and rollback. |
 | **What does it show?** | Candidates, archives, scores, costs, safety events, metacognitive predictions, promotion audits, runtime health, and recovery state. |
 | **Does it need an API key?** | No for local tests, benchmarks, dashboards, and provider-free runs. Provider lanes are optional and separately configured. |
 
@@ -67,7 +85,7 @@ flowchart LR
     VISIBLE --> ARCHIVE["Quality-diversity archive"]
     ARCHIVE --> CHALLENGE["Challenger tournament"]
     CHALLENGE --> FREEZE["Freeze candidate identity"]
-    FREEZE --> HOLDOUT["Sealed held-out suite"]
+    FREEZE --> HOLDOUT["Versioned reference suite"]
     HOLDOUT --> AUDIT["Promotion + safety audit"]
     AUDIT -->|"evidence clears floor"| ELITE["Retained elite"]
     AUDIT -->|"regression / uncertainty"| ROLLBACK["Rollback + lineage record"]
@@ -91,7 +109,7 @@ flowchart TB
     ARCHIVE["Loop 1<br/>population + MAP-Elites"]
     CANDIDATE["Loop 0<br/>candidate mutation"]
     SCORE["Arenas + evidence"]
-    HOLDOUT["Frozen held-out evaluation"]
+    HOLDOUT["Frozen reference-suite evaluation"]
     GATE{"Promotion gate"}
 
     SUP --> META2
@@ -168,17 +186,19 @@ Promotion is assembled from multiple evidence surfaces:
 | **Near-miss analysis** | Why did an otherwise strong candidate fail the final gate? |
 | **Quarantine** | Is uncertainty material enough to remove the candidate from promotion? |
 
-A high raw score can still be rejected for weak proof, instability, safety findings, or held-out regression.
+A high raw score can still be rejected for weak proof, instability, safety findings, or reference-suite regression.
 
-### 4. Sealed held-out benchmarks
+### 4. Versioned reference-suite benchmarks
 
-Doofus includes a versioned held-out suite across three task families:
+Doofus includes a public, versioned reference suite across three task families.
+The committed tasks support deterministic comparison and regression detection;
+they do not claim secret evaluator custody or independence from the repository:
 
 - **optimization** — candidate behavior on objective landscapes not exposed to the visible loop;
 - **code repair** — bounded source-repair tasks evaluated through executable behavior;
 - **calibration** — confidence and prediction quality against known outcomes.
 
-The candidate is serialized and hashed before the held-out tasks are evaluated. The report records:
+The candidate is serialized and hashed before the reference tasks are evaluated. The report records:
 
 - suite version and engine reference;
 - frozen candidate identity;
@@ -191,7 +211,7 @@ The candidate is serialized and hashed before the held-out tasks are evaluated. 
 sequenceDiagram
     participant E as Evolution loop
     participant F as Freeze boundary
-    participant H as Held-out runner
+    participant H as Reference-suite runner
     participant G as Promotion gate
 
     E->>E: Optimize on visible objectives
@@ -203,9 +223,11 @@ sequenceDiagram
     G-->>E: Promote, reject, quarantine, or abstain
 ```
 
-The slower held-out workflow is opt-in on pull requests through the `run-heldout` label and can also be started manually. This keeps routine CI fast while making benchmark promotion an explicit act.
+The slower reference-suite workflow is opt-in on pull requests through the
+historical `run-heldout` label and can also be started manually. This keeps
+routine CI fast while making benchmark promotion an explicit act.
 
-See the [held-out benchmark protocol](docs/benchmarks/HELDOUT_BENCHMARKS.md).
+See the [reference-suite benchmark protocol](docs/benchmarks/HELDOUT_BENCHMARKS.md).
 
 ### 5. External project evolution
 
@@ -282,7 +304,7 @@ It brings together:
 - current candidate and best-known state;
 - MAP-Elites and shadow-elite archive growth;
 - lineage and mutation variants;
-- visible, held-out, proof-density, and promotion scores;
+- visible, reference-suite, proof-density, and promotion scores;
 - metacognitive predictions and calibration;
 - model/provider usage and cost;
 - safety, budget, and quarantine events;
@@ -342,7 +364,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-Run the held-out baseline:
+Run the versioned reference-suite baseline:
 
 ```powershell
 .\.venv\Scripts\python.exe -m doofus.benchmarks `
@@ -374,10 +396,10 @@ Review provider, cost, secret, and runtime policies before enabling any live mod
 | **Filesystem** | Registered roots, protected-root rejection, exact target registry, snapshot and rollback. |
 | **Subprocesses** | Operator-supplied fitness commands run with provider secrets and `DOOFUS_*` controls removed. |
 | **Providers** | Optional adapters, explicit secret sources, response validation, call ledger, cost and call ceilings. |
-| **Promotion** | Score, proof density, replay, regression, safety, bloat, and held-out evidence remain separate checks. |
+| **Promotion** | Score, proof density, replay, regression, safety, bloat, and reference-suite evidence remain separate checks. |
 | **Metacognition** | Prediction and recommendation in shadow mode until calibration and safety gates justify more. |
 | **Runtime** | Heartbeats, duplicate-process checks, watchdogs, checkpoints, emergency stop, and failover. |
-| **Claims** | Internal, visible, held-out, simulated, backtested, and live evidence remain differently labeled. |
+| **Claims** | Internal, visible, reference-suite, simulated, backtested, and live evidence remain differently labeled. |
 
 ## Release proof
 
@@ -387,7 +409,7 @@ The public workflows separate routine correctness from expensive benchmark evide
 | --- | --- | --- |
 | **Tests / pytest** | Push and pull request | Installs the package on Windows and runs the clean-checkout suite without API keys. |
 | **Tests / Ruff** | Push and pull request | Blocks on the repository’s selected Python error and correctness rules. |
-| **Held-out benchmarks** | Manual or `run-heldout` pull-request label | Reproduces the committed baseline, runs the sealed suite, and uploads the exact report for the source SHA. |
+| **Reference-suite benchmarks** | Manual or historical `run-heldout` pull-request label | Reproduces the committed baseline, runs the public versioned suite, and uploads the exact report for the source SHA. |
 | **Public release readiness** | Inside the test job | Checks presentation, links, license, hygiene, and public-source constraints. |
 
 Routine CI intentionally does not claim a long-running local evolution history exists on a fresh runner. Machine-local live-runtime tests are marked and isolated from clean-clone proof.
@@ -399,7 +421,7 @@ doofus/
 |-- evolution/             candidates, archives, novelty, tournaments, lineage
 |-- metacognition/         predictions, calibration, memory, abstention, control
 |-- meta/                  strategy, prompt, gene, and external-project evolution
-|-- benchmarks/            frozen held-out runner and task families
+|-- benchmarks/            frozen reference-suite runner and task families
 |-- scoring/               scorecards, proof density, promotion and quarantine
 |-- proof/                 replay, stability, lineage, and rescue evidence
 |-- runtime/               health, failover, process identity, recovery
@@ -417,7 +439,7 @@ runtime/                   machine-local state, metrics, controls, and recovery
 Recommended reading:
 
 1. [Metacognitive evolution](docs/DOOFUS_METACOGNITIVE_EVOLUTION.md) — runtime modes, evidence loop, and authority.
-2. [Held-out benchmark protocol](docs/benchmarks/HELDOUT_BENCHMARKS.md) — task inventory and isolation.
+2. [Reference-suite benchmark protocol](docs/benchmarks/HELDOUT_BENCHMARKS.md) — task inventory and isolation.
 3. [External project guide](docs/EXTERNAL_PROJECTS.md) — fitness contracts and bounded source experiments.
 4. [Safety boundary](docs/DOOFUS_SAFETY_BOUNDARY.md) — mutation, providers, budgets, and recovery.
 5. [24/7 autonomy policy](docs/DOOFUS_24_7_AUTONOMY_POLICY.md) — unattended-runtime constraints.
@@ -445,7 +467,7 @@ Live provider and external-project modes can incur cost or modify source when se
 Doofus does not:
 
 - guarantee that a fitness function measures what you intended;
-- make a held-out suite immune to all forms of leakage;
+- make a public reference suite immune to leakage or equivalent to an externally administered holdout;
 - turn internal score growth into real-world improvement;
 - remove the need for operator judgment;
 - authorize arbitrary self-modification;
