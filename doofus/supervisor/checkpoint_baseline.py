@@ -7,7 +7,8 @@ from pathlib import Path
 from typing import Any
 
 from doofus.core.doofus_events import utc_now
-from doofus.supervisor import doofus_crash_recovery, doofus_cycle_checkpoint
+from doofus.supervisor.doofus_crash_recovery import CHECKPOINT
+from doofus.supervisor.doofus_cycle_checkpoint import CHECKPOINT as CYCLE_CHECKPOINT
 
 CHECKPOINT_REQUIRED = frozenset({"generation", "phase", "baseline_score", "run_id"})
 CYCLE_CHECKPOINT_REQUIRED = frozenset({"stage", "data"})
@@ -76,13 +77,11 @@ def validate_cycle_checkpoint(cycle_checkpoint: dict[str, Any]) -> None:
 
 
 def backup_checkpoint_files(*, output_dir: Path | None = None, label: str = "containment") -> dict[str, str]:
-    checkpoint = doofus_crash_recovery.CHECKPOINT
-    cycle_checkpoint = doofus_cycle_checkpoint.CHECKPOINT
-    output_dir = output_dir or checkpoint.parent
+    output_dir = output_dir or CHECKPOINT.parent
     output_dir.mkdir(parents=True, exist_ok=True)
     stamp = utc_now().replace(":", "").replace("+", "p")
     backups: dict[str, str] = {}
-    for src in (checkpoint, cycle_checkpoint):
+    for src in (CHECKPOINT, CYCLE_CHECKPOINT):
         if src.exists():
             dest = output_dir / f"{src.stem}_{label}_{stamp}{src.suffix}"
             shutil.copy2(src, dest)
