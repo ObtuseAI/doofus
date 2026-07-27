@@ -1211,6 +1211,8 @@ def main() -> int:
     from doofus.supervisor.doofus_cycle_checkpoint import read_checkpoint
 
     ARTIFACT_OUT.mkdir(parents=True, exist_ok=True)
+    schema = feed_schema()
+    write_pair(ARTIFACT_OUT, "FEED_SCHEMA", schema)
     ck = load_checkpoint()
     cc = read_checkpoint()
     stop = status()
@@ -1273,9 +1275,6 @@ def main() -> int:
             "resolution_meta": resolution_meta,
         },
     )
-
-    schema = feed_schema()
-    write_pair(ARTIFACT_OUT, "FEED_SCHEMA", schema)
 
     mined = mine_discoveries()
     write_pair(ARTIFACT_OUT, "MINED_DISCOVERIES_RAW", mined)

@@ -29,13 +29,26 @@ def _seed_from_item(item: ImprovementItem, priority: str) -> dict[str, Any]:
 def build_seed_recommendations(catalog: ImprovementCatalog, output_dir: Path) -> dict[str, Any]:
     p0 = [i for i in catalog.items if i.score >= 85][:5]
     p1 = [i for i in catalog.items if 70 <= i.score < 85][:10]
-    deferred = [i for i in catalog.items if i.status == "deferred" or i.score < 55][:5]
-    if len(deferred) < 5:
-        deferred = catalog.items[-5:]
+    selected = {item.dedupe_key for item in (*p0, *p1)}
+    deferred = [
+        i
+        for i in catalog.items
+        if (
+            i.dedupe_key not in selected
+            and (i.status == "deferred" or i.score < 55)
+        )
+    ][:5]
+    selected.update(item.dedupe_key for item in deferred)
+    p2 = [
+        i
+        for i in catalog.items
+        if i.dedupe_key not in selected
+    ][: max(0, 20 - len(selected))]
 
     seeds = [_seed_from_item(i, "P0") for i in p0]
     seeds += [_seed_from_item(i, "P1") for i in p1]
-    seeds += [_seed_from_item(i, "DEFERRED") for i in deferred[: max(0, 20 - len(seeds))]]
+    seeds += [_seed_from_item(i, "P2") for i in p2]
+    seeds += [_seed_from_item(i, "DEFERRED") for i in deferred]
 
     excluded = [
         {"reason": "gen1640 live launch not authorized in this bundle", "item": "live_provider_cycle"},
@@ -49,6 +62,7 @@ def build_seed_recommendations(catalog: ImprovementCatalog, output_dir: Path) ->
         "seed_count": len(seeds),
         "p0_count": len(p0),
         "p1_count": len(p1),
+        "p2_count": len(p2),
         "deferred_count": len([s for s in seeds if s["priority"] == "DEFERRED"]),
         "seeds": seeds,
         "excluded_from_gen1640": excluded,
