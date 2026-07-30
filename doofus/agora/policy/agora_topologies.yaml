@@ -1,0 +1,61 @@
+schema_version: "1.0.0"
+topologies:
+  frontier_hexagon:
+    label: Frontier Hexagon
+    divergence_roles:
+      - mechanism_inventor
+      - systems_architect
+      - empirical_scientist
+      - prior_art_cartographer
+      - minimalist
+      - minority_advocate
+    rounds: [DIVERGENCE, CRITIQUE, SYNTHESIS]
+    invention_operators:
+      - mechanism_transplant
+      - assumption_inversion
+      - constraint_recombination
+      - causal_decomposition
+      - minimal_counterfactual
+    minority_lane_required: true
+  red_blue_foundry:
+    label: Red Blue Foundry
+    divergence_roles:
+      - mechanism_inventor
+      - systems_architect
+      - adversarial_auditor
+      - empirical_scientist
+    rounds: [DIVERGENCE, CRITIQUE, SYNTHESIS]
+    invention_operators:
+      - adversarial_falsification
+      - counterexample_first
+      - proof_obligation_reversal
+    minority_lane_required: true
+  evidence_funnel:
+    label: Evidence Funnel
+    divergence_roles:
+      - prior_art_cartographer
+      - empirical_scientist
+      - mechanism_inventor
+      - calibrated_judge
+    rounds: [DIVERGENCE, CRITIQUE, SYNTHESIS]
+    invention_operators:
+      - evidence_gap_hunting
+      - causal_decomposition
+      - decisive_experiment
+    minority_lane_required: true
+  problem_solution_coevolution:
+    label: Problem Solution Coevolution
+    divergence_roles:
+      - mechanism_inventor
+      - minority_advocate
+      - systems_architect
+      - adversarial_auditor
+      - empirical_scientist
+      - minimalist
+    rounds: [DIVERGENCE, CRITIQUE, SYNTHESIS]
+    invention_operators:
+      - problem_reframing
+      - map_gap_targeting
+      - rejection_reversal
+      - bottleneck_transplant
+    minority_lane_required: true

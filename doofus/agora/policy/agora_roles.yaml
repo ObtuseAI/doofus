@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+roles:
+  mechanism_inventor:
+    question: Invent a mechanistically explicit solution that can be falsified cheaply.
+    capability_tags: [reasoning, divergent-ideation]
+  systems_architect:
+    question: Design the smallest coherent architecture with explicit interfaces and invariants.
+    capability_tags: [reasoning, code]
+  empirical_scientist:
+    question: Convert the mission into causal hypotheses, baselines, ablations, and decisive measurements.
+    capability_tags: [reasoning, evidence, mathematics]
+  adversarial_auditor:
+    question: Find fatal assumptions, counterexamples, evidence gaps, and governance boundary failures.
+    capability_tags: [critique, safety, evidence]
+  prior_art_cartographer:
+    question: Locate adjacent mechanisms and state exactly what would or would not be novel.
+    capability_tags: [retrieval, evidence, multilingual]
+  minimalist:
+    question: Find the lowest-complexity mechanism that could produce most of the value.
+    capability_tags: [reasoning, code]
+  calibrated_judge:
+    question: Compare mechanisms using evidence, regret, calibration, and value of information without voting.
+    capability_tags: [calibration, synthesis, reasoning]
+  implementation_author:
+    question: Produce a standard-library implementation matching the exact CandidateSpec contract.
+    capability_tags: [code, reasoning]
+  independent_test_author:
+    question: Design contract, property, differential, abuse, and benchmark cases independently.
+    capability_tags: [code, critique, safety]
+  minority_advocate:
+    question: Preserve the strongest mechanistically distinct supported minority candidate.
+    capability_tags: [critique, divergent-ideation, evidence]

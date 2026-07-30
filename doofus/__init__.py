@@ -1,2 +1,2 @@
-"""Doofus — separate local/private autonomous operation."""
-__version__ = "1.1.0"
+"""Doofus — evidence-gated invention, evolution, and metacognitive research."""
+__version__ = "1.2.0"

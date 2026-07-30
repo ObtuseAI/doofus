@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+providers:
+  chatgpt:
+    source_url: https://openai.com/policies/terms-of-use/
+  claude:
+    source_url: https://www.anthropic.com/legal/consumer-terms
+  perplexity:
+    source_url: https://www.perplexity.ai/hub/legal/terms-of-service
+  deepseek:
+    source_url: https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html
+  qwen:
+    source_url: https://qwen.ai/termsservice
+  huggingchat:
+    source_url: https://huggingface.co/terms-of-service
+  gemini:
+    source_url: https://policies.google.com/terms/generative-ai/use-policy
+  copilot:
+    source_url: https://www.microsoft.com/en-us/servicesagreement
+  mistral:
+    source_url: https://mistral.ai/terms
+  grok:
+    source_url: https://x.ai/legal/terms-of-service

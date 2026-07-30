@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+authority:
+  maximum_effect: CANDIDATE_HANDOFF_ONLY
+  act_semantics: SUBMIT_TO_EXISTING_DOOFUS_GATES_ONLY
+  browser_submission: DISABLED
+  browser_extraction: DISABLED
+  cross_project_write: DISABLED
+protected_invariants:
+  - promotion thresholds
+  - kill switches
+  - protected paths
+  - credential handling
+  - rollback policy
+  - live execution permissions
+evidence_retrieval:
+  timeout_seconds: 12
+  maximum_bytes: 4000000
+  retry_count: 3
+  maximum_redirects: 5
+  require_public_global_address: true
+  allowed_content_types:
+    - application/json
+    - application/pdf
+    - text/html
+    - text/markdown
+    - text/plain
+debate:
+  similarity_threshold: 0.54
+  preserve_minority: true
+  majority_voting: false
+  minimum_information_gain: 0.05
+  maximum_rounds: 8
+sandbox:
+  kind: WSL2_BUBBLEWRAP_UNSHARE_ALL
+  wsl_distribution: Ubuntu
+  timeout_seconds: 12
+  cpu_seconds: 6
+  memory_bytes: 268435456
+  process_count: 24
+  output_bytes: 1048576
+  network: DISABLED
+  standard_library_only: true
+  repository_mount: DISABLED
+dependency_policy:
+  default: BLOCKED_UNVERIFIED_DEPENDENCY
+  offline_wheelhouse_requires_operator_approval: true
+  required_records: [name, version, sha256, license]

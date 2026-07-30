@@ -32,7 +32,7 @@
   <g class="sans">
     <text x="90" y="90" fill="#f8fbff" font-size="48" font-weight="760">DOOFUS</text>
     <text x="90" y="132" fill="#70d9ff" font-size="20" letter-spacing="3">EVIDENCE-GATED EVOLUTION</text>
-    <text x="90" y="174" class="muted" font-size="19">Explore broadly. Measure honestly. Promote only against held-out proof.</text>
+    <text x="90" y="174" class="muted" font-size="19">Explore broadly. Measure honestly. Promote only against versioned proof.</text>
 
     <g transform="translate(90 230)">
       <rect width="905" height="570" rx="26" fill="#09182b" stroke="#1c3a57" stroke-width="2"/>
@@ -59,7 +59,7 @@
         <path d="M588 228 C690 228 688 390 790 390" fill="none" stroke="#22d3ee" stroke-width="3"/>
         <circle cx="588" cy="228" r="6" fill="#22d3ee"/>
         <rect x="666" y="340" width="190" height="104" rx="16" class="card"/>
-        <text x="761" y="377" text-anchor="middle" class="label">Held-out gate</text>
+        <text x="761" y="377" text-anchor="middle" class="label">Reference gate</text>
         <text x="761" y="406" text-anchor="middle" class="small">freeze · hash · replay</text>
         <text x="761" y="429" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">NON-REGRESSION</text>
       </g>
@@ -91,7 +91,7 @@
         <text x="20" y="353" class="small">PROMOTION CONTRACT</text>
         <g class="mono" font-size="15">
           <text x="20" y="389" fill="#34d399">✓ safety floor preserved</text>
-          <text x="20" y="418" fill="#34d399">✓ held-out score non-regressing</text>
+          <text x="20" y="418" fill="#34d399">✓ reference score non-regressing</text>
           <text x="20" y="447" fill="#34d399">✓ rollback snapshot retained</text>
           <text x="20" y="476" fill="#70d9ff">→ evidence packet ready</text>
         </g>

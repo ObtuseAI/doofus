@@ -69,7 +69,10 @@ def run_git(root: Path, arguments: tuple[str, ...]) -> tuple[str, ...]:
 
 
 def tracked_files(root: Path) -> tuple[Path, ...]:
-    relative_paths = run_git(root, ("ls-files",))
+    relative_paths = run_git(
+        root,
+        ("ls-files", "--cached", "--others", "--exclude-standard"),
+    )
     return tuple(root / relative_path for relative_path in relative_paths)
 
 
