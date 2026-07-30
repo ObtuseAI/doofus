@@ -24,6 +24,7 @@ from doofus.dashboard.live_dashboard_refresh import (
 )
 from doofus.dashboard.live_event_table import build_event_tables
 from doofus.dashboard.live_checkpoint_panel import build_checkpoint_panel
+from doofus.dashboard.agora_panel import build_agora_panel
 from doofus.safety.on_off_switch import start, stop, emergency_stop, clear_emergency
 from doofus.dashboard.dashboard_health import dashboard_reachable
 from doofus.supervisor.process_singleton import (
@@ -473,6 +474,7 @@ def main() -> None:
             ui.tab("Metacognition")
             ui.tab("Tasks")
             ui.tab("Reports")
+            ui.tab("Agora")
             ui.tab("Diagnostics")
 
         with ui.tab_panels(tabs, value="Overview").classes("w-full q-px-md"):
@@ -542,6 +544,9 @@ def main() -> None:
             with ui.tab_panel("Reports"):
                 ui.label(f"Shared: {SHARED}").classes("text-caption doofus-dash-muted")
                 ui.label("Report list loads after dashboard binds (auto-refresh).").classes("text-caption doofus-dash-muted")
+
+            with ui.tab_panel("Agora"):
+                build_agora_panel()
 
             with ui.tab_panel("Diagnostics"):
                 _json_refs["diagnostics"] = ui.json_editor({"content": {"mode": "tree", "json": snap}}).classes("w-full")

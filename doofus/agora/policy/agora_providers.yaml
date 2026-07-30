@@ -1,0 +1,142 @@
+schema_version: "1.0.0"
+providers:
+  - provider_id: chatgpt
+    display_name: ChatGPT
+    execution_mode: ATTENDED
+    capabilities: [reasoning, synthesis, code, calibration]
+    weaknesses: [consumer-session variability, correlation with common baselines]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [frontier-generalist, western-transformer]
+  - provider_id: claude
+    display_name: Claude
+    execution_mode: ATTENDED
+    capabilities: [reasoning, critique, long-context, safety]
+    weaknesses: [consumer-session variability, overqualification]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [frontier-generalist, western-transformer]
+  - provider_id: perplexity
+    display_name: Perplexity
+    execution_mode: ATTENDED
+    capabilities: [retrieval, evidence, synthesis]
+    weaknesses: [source-attribution still requires independent checking]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [retrieval-augmented, western-transformer]
+  - provider_id: deepseek
+    display_name: DeepSeek
+    execution_mode: ATTENDED
+    capabilities: [reasoning, code, mathematics]
+    weaknesses: [consumer-session variability, source-attribution]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [open-weights-adjacent, chinese-lab]
+  - provider_id: qwen
+    display_name: Qwen
+    execution_mode: ATTENDED
+    capabilities: [reasoning, code, multilingual]
+    weaknesses: [consumer-session variability, source-attribution]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [open-weights-adjacent, chinese-lab]
+  - provider_id: huggingchat
+    display_name: HuggingChat
+    execution_mode: ASSISTED
+    capabilities: [open-model-diversity, code, alternate-priors]
+    weaknesses: [model-routing variability, lower reliability]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: true
+    historical_quality: {}
+    correlation_groups: [open-weights-adjacent, aggregator]
+  - provider_id: gemini
+    display_name: Gemini
+    execution_mode: ATTENDED
+    capabilities: [reasoning, multimodal, retrieval]
+    weaknesses: [consumer-session variability]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: false
+    historical_quality: {}
+    correlation_groups: [frontier-generalist, western-transformer]
+  - provider_id: copilot
+    display_name: Microsoft Copilot
+    execution_mode: ATTENDED
+    capabilities: [retrieval, synthesis, code]
+    weaknesses: [consumer-session variability, model-routing opacity]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: false
+    historical_quality: {}
+    correlation_groups: [frontier-generalist, retrieval-augmented]
+  - provider_id: mistral
+    display_name: Le Chat
+    execution_mode: ATTENDED
+    capabilities: [reasoning, code, multilingual]
+    weaknesses: [consumer-session variability]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: false
+    historical_quality: {}
+    correlation_groups: [european-lab, open-weights-adjacent]
+  - provider_id: grok
+    display_name: Grok
+    execution_mode: ATTENDED
+    capabilities: [reasoning, retrieval, divergent-ideation]
+    weaknesses: [consumer-session variability, source-attribution]
+    terms_status: REVIEW_REQUIRED
+    automated_submit_allowed: false
+    automated_extract_allowed: false
+    free_access_status: MEASURED_AT_SESSION_TIME
+    quota_state: AVAILABLE
+    cooldown_until: null
+    core_enabled: false
+    historical_quality: {}
+    correlation_groups: [frontier-generalist, retrieval-augmented]
